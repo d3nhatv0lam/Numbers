@@ -1,3 +1,6 @@
+using Numbers.Presenters;
+using Numbers.Views;
+
 namespace Numbers;
 
 static class Program
@@ -11,6 +14,10 @@ static class Program
         // To customize application configuration such as set high DPI settings or default font,
         // see https://aka.ms/applicationconfiguration.
         ApplicationConfiguration.Initialize();
-        Application.Run(new Form1());
+        var mainView = new MainView();
+        var presenter = new NumberPresenter(mainView);
+        Application.Run(mainView);
+        
+        presenter.Dispose();
     }
 }
