@@ -18,7 +18,7 @@ public partial class MainView : Form, IMainView
 
     private void input_TextChanged(object sender, EventArgs e)
     {
-        if (string.IsNullOrEmpty(Input)) CheckStatus.Text = string.Empty;
+        if (string.IsNullOrWhiteSpace(Input)) CheckStatus.Text = string.Empty;
         else
             ValueChanged?.Invoke(this, EventArgs.Empty);
     }

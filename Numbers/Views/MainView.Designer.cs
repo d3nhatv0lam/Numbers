@@ -1,4 +1,4 @@
-﻿namespace Numbers.Views;
+namespace Numbers.Views;
 
 partial class MainView
 {
@@ -30,60 +30,73 @@ partial class MainView
     private void InitializeComponent()
     {
         txtNumber = new AntdUI.Input();
-        label1 = new AntdUI.Label();
-        label2 = new AntdUI.Label();
+        inputLabel = new AntdUI.Label();
+        statusLabel = new AntdUI.Label();
         CheckStatus = new AntdUI.Label();
         SuspendLayout();
         // 
         // txtNumber
         // 
-        txtNumber.Location = new System.Drawing.Point(57, 76);
+        txtNumber.AllowClear = true;
+        txtNumber.Font = new Font("Segoe UI", 11F);
+        txtNumber.Location = new Point(60, 120);
         txtNumber.Name = "txtNumber";
-        txtNumber.Size = new System.Drawing.Size(528, 44);
-        txtNumber.TabIndex = 0;
-        txtNumber.Text = "input1";
+        txtNumber.PlaceholderText = "Ví dụ: 12345";
+        txtNumber.Radius = 8;
+        txtNumber.Size = new Size(680, 44);
+        txtNumber.TabIndex = 1;
         txtNumber.TextChanged += input_TextChanged;
         // 
-        // label1
+        // inputLabel
         // 
-        label1.Location = new System.Drawing.Point(66, 34);
-        label1.Name = "label1";
-        label1.Size = new System.Drawing.Size(142, 36);
-        label1.TabIndex = 1;
-        label1.Text = "label1";
+        inputLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+        inputLabel.ForeColor = Color.FromArgb(38, 38, 38);
+        inputLabel.Location = new Point(60, 80);
+        inputLabel.Name = "inputLabel";
+        inputLabel.Size = new Size(680, 32);
+        inputLabel.TabIndex = 0;
+        inputLabel.Text = "Nhập số:";
         // 
-        // label2
+        // statusLabel
         // 
-        label2.Location = new System.Drawing.Point(66, 142);
-        label2.Name = "label2";
-        label2.Size = new System.Drawing.Size(518, 43);
-        label2.TabIndex = 2;
-        label2.Text = "label2";
+        statusLabel.Font = new Font("Segoe UI", 10F);
+        statusLabel.ForeColor = Color.FromArgb(140, 140, 140);
+        statusLabel.Location = new Point(60, 200);
+        statusLabel.Name = "statusLabel";
+        statusLabel.Size = new Size(680, 32);
+        statusLabel.TabIndex = 2;
+        statusLabel.Text = "Kết quả kiểm tra:";
         // 
         // CheckStatus
         // 
-        CheckStatus.Location = new System.Drawing.Point(66, 191);
+        CheckStatus.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+        CheckStatus.ForeColor = Color.FromArgb(38, 38, 38);
+        CheckStatus.Location = new Point(60, 236);
         CheckStatus.Name = "CheckStatus";
-        CheckStatus.Size = new System.Drawing.Size(518, 43);
+        CheckStatus.Size = new Size(680, 44);
         CheckStatus.TabIndex = 3;
-        CheckStatus.Text = "label3";
         // 
         // MainView
         // 
-        AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-        AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        ClientSize = new System.Drawing.Size(800, 450);
+        AutoScaleDimensions = new SizeF(8F, 20F);
+        AutoScaleMode = AutoScaleMode.Font;
+        BackColor = Color.FromArgb(245, 247, 250);
+        ClientSize = new Size(800, 450);
         Controls.Add(CheckStatus);
-        Controls.Add(label2);
-        Controls.Add(label1);
+        Controls.Add(statusLabel);
+        Controls.Add(inputLabel);
         Controls.Add(txtNumber);
+        FormBorderStyle = FormBorderStyle.FixedSingle;
+        MaximizeBox = false;
+        Name = "MainView";
+        StartPosition = FormStartPosition.CenterScreen;
         Text = "Numbers";
         ResumeLayout(false);
     }
 
     private AntdUI.Input txtNumber;
-    private AntdUI.Label label1;
-    private AntdUI.Label label2;
+    private AntdUI.Label inputLabel;
+    private AntdUI.Label statusLabel;
     private AntdUI.Label CheckStatus;
 
     #endregion

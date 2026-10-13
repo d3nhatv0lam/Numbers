@@ -1,3 +1,4 @@
+using Numbers.Models;
 using Numbers.Views;
 
 namespace Numbers.Presenters;
@@ -14,7 +15,14 @@ public class NumberPresenter: IDisposable
 
     private void OnValueChanged(object? sender, EventArgs e)
     {
-        _view.UpdateView("Value changed");
+        var trimmedInput = _view.Input.Trim();
+        var message = NumberValidator.GetNumberKind(trimmedInput) switch
+        {
+            NumberKind.Integer => "Là số nguyên",
+            NumberKind.Decimal => "Là số thập phân",
+            _ => "Không phải số"
+        };
+        _view.UpdateView(message);
     }
 
     public void Dispose()
